@@ -9,7 +9,7 @@ from sys import platform
 from sys import platform
 if platform == "linux" or platform == "linux2":
     # linux
-    pass
+    from linux.game import Controller
 elif platform == "darwin":
     # OS X
     from mac.game import Controller
@@ -24,7 +24,7 @@ except:
 
 input_sequence = controller.input_sequence
 correct_sequence = "UpUpDownDownLeftRightLeftRightBA"
-print(input_sequence)
+# print(input_sequence)
 
 
 if input_sequence == correct_sequence:
