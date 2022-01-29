@@ -8,4 +8,4 @@ On Mac
 Using PyGame 2.0.1 and a PlayStation 4 Controller
 
 On Linux (Raspbian)
-Using PyGame 2.1.2 and a PlayStation 4 Controller
+Using PyGame 1.9.4 and a PlayStation 4 Controller
