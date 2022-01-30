@@ -8,10 +8,10 @@ from pygame import mixer
 import multiprocessing
 # from multiprocessing import Process
 # needed to instantiate alarm
-# from alarm import Alarm
+from alarm import Alarm
 
 mixer.init()
-# alarm = Alarm()
+alarm = Alarm()
 
 x = 0 
 
@@ -20,14 +20,16 @@ while x==0:
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     print("Current Time =", current_time)
-    alarm_time = "19:56:30"
+    alarm_time = "22:24:30"
 
     if current_time == alarm_time:
         print("alarm on, playing sound")
         mixer.music.load('Alarm.mp3')
         mixer.music.play()
-        r = input("press ENTER to stop playback")
-        if(r==''):
+        r = alarm.start_alarm()
+        print(r)
+        if(r==1):
+            print(r)
             mixer.music.stop()
             x = 1
         
