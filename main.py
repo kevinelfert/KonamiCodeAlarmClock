@@ -1,31 +1,36 @@
-"""
-January 28 2021
-Kevin Elfert
-
-Konami Alarm Clock
-an alarm clock that is turned off by inputting the konami code
-"""
-from sys import platform
-from sys import platform
-if platform == "linux" or platform == "linux2":
-    # linux
-    from linux.game import Controller
-elif platform == "darwin":
-    # OS X
-    from mac.game import Controller
-elif platform == "win32":
-    from windows.game import Controller
-
-# need to handle error when controller is not plugged in
-try:
-    controller = Controller()
-except:
-    pass
-
-input_sequence = controller.input_sequence
-correct_sequence = "UpUpDownDownLeftRightLeftRightBA"
-# print(input_sequence)
+# needed to format times
+from datetime import datetime
+# needed for sleep function
+from time import sleep
+#needed to play sound
+from playsound import playsound
+# needed to send process to Alarm
+import multiprocessing
+# from multiprocessing import Process
+# needed to instantiate alarm
+from alarm import Alarm
 
 
-if input_sequence == correct_sequence:
-    print("Alarm Off")
+# alarm = Alarm()
+
+x = 0 
+
+while x==0:
+    sleep(1)
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    print("Current Time =", current_time)
+    alarm_time = "18:12:00"
+    if current_time == alarm_time:
+        print("alarm on, playing sound")
+        p = multiprocessing.Process(target=playsound, args=("Alarm.wav",))
+        p.start()
+        # r = alarm.start_alarm()
+        # if(r == 1):
+        #     p.terminate()
+        #     playsound(None)
+        #     x = 1
+        input("press ENTER to stop playback")
+        p.terminate()
+        
+

@@ -1,20 +1,37 @@
-from datetime import datetime
-from time import sleep
-from playsound import playsound
+from sys import platform
+from multiprocessing import Process
+if platform == "linux" or platform == "linux2":
+    # linux
+    from linux.game import Controller
+elif platform == "darwin":
+    # OS X
+    from mac.game import Controller
+elif platform == "win32":
+    from windows.game import Controller
 
-x = 0 
+# need to handle error when controller is not plugged in
+class Alarm:
+    def __init__(self):
+        print("clock inits")
 
-while x==0:
-    sleep(1)
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    print("Current Time =", current_time)
-    alarm_time = "21:10:00"
-    if current_time == alarm_time:
-        print("alarm on, playing sound")
-        playsound('Alarm.wav')
-        x = 1
-
-    
-
-
+    def start_alarm(self):
+        # if(type(p) == Process):
+            print("Alarm on")
+            try:
+                correct_sequence = "UpUpDownDownLeftRightLeftRightBA"
+                controller = Controller()
+                input_sequence = controller.check_input()
+                # if the input sequence does 
+                # not equal the correct sequence,
+                # the program continues to output times
+                #
+                # the program should notify the user that the 
+                # input sequence is wrong and allow the user
+                # to input another sequence
+                #
+                # currently does not work
+                if input_sequence == correct_sequence:
+                    print("Alarm Off")
+                    return 1
+            except:
+                pass
