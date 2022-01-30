@@ -1,11 +1,6 @@
 import pygame
-import io
 
 pygame.init()
-print("hello")
-output = io.StringIO
-
-# https://stackoverflow.com/questions/15057114/pygame-does-not-detect-joystick?noredirect=1&lq=1
 j = pygame.joystick.Joystick(0)
 j.init()
 hats = j.get_numhats()

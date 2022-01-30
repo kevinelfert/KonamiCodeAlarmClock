@@ -13,14 +13,14 @@ from alarm import Alarm
 mixer.init()
 alarm = Alarm()
 
-x = 0 
+x = 0
 
-while x==0:
+while x == 0:
     sleep(1)
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     print("Current Time =", current_time)
-    alarm_time = "22:24:30"
+    alarm_time = "13:33:00"
 
     if current_time == alarm_time:
         print("alarm on, playing sound")
@@ -28,11 +28,7 @@ while x==0:
         mixer.music.play()
         r = alarm.start_alarm()
         print(r)
-        if(r==1):
+        if(r == 1):
             print(r)
             mixer.music.stop()
             x = 1
-        
-        
-        
-
