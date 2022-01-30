@@ -8,7 +8,7 @@ from playsound import playsound
 import multiprocessing
 # from multiprocessing import Process
 # needed to instantiate alarm
-from alarm import Alarm
+# from alarm import Alarm
 
 
 # alarm = Alarm()
@@ -20,16 +20,17 @@ while x==0:
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     print("Current Time =", current_time)
-    alarm_time = "18:12:00"
+    alarm_time = "19:38:00"
     if current_time == alarm_time:
         print("alarm on, playing sound")
+        # playsound('Alarm.mp3')
         p = multiprocessing.Process(target=playsound, args=("Alarm.wav",))
         p.start()
-        # r = alarm.start_alarm()
-        # if(r == 1):
-        #     p.terminate()
-        #     playsound(None)
-        #     x = 1
+        # # r = alarm.start_alarm()
+        # # if(r == 1):
+        # #     p.terminate()
+        # #     playsound(None)
+        # #     x = 1
         input("press ENTER to stop playback")
         p.terminate()
         
