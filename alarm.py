@@ -45,8 +45,6 @@ class Alarm:
             print("Alarm Off")
             return 1
 
-
-
 if __name__ == '__main__':
     alarm = Alarm()
     alarm.start_alarm()
