@@ -44,7 +44,14 @@ class Alarm:
         if input_sequence == correct_sequence:
             print("Alarm Off")
             return 1
+        else:
+            return 0 
 
 if __name__ == '__main__':
     alarm = Alarm()
-    alarm.start_alarm()
+    r = alarm.start_alarm()
+    print(r)
+    if(r == 1):
+        pass
+    else:
+        alarm.start_alarm()
