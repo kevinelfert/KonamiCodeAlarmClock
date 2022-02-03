@@ -22,17 +22,6 @@ class Alarm:
 
             controller = Controller()
             input_sequence = controller.check_input()
-            # if the input sequence does 
-            # not equal the correct sequence,
-            # the program continues to output times
-            #
-            # the program should notify the user that the 
-            # input sequence is wrong and allow the user
-            # to input another sequence
-            #
-            # currently does not work
-
-            # this print is printing none
         except:
             #use the computer keyboard
             from keybaord import Keyboard

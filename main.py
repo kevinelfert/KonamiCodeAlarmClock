@@ -11,6 +11,7 @@ class App():
     def __init__(self):
         # main window
         self.main_window = tk.Tk()
+        self.main_window.title('Konami Code Alarm Clock')
         self.main_window.geometry('600x400')
 
         # main label
